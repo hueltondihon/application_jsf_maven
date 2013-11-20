@@ -13,11 +13,23 @@ public class HibernateUtil {
     
     static {
         try {
+            System.out.println("Tentando configurar a Session Factory");
             Configuration configuration = new Configuration().configure();
             ServiceRegistry  serviceRegistry = new ServiceRegistryBuilder().
             applySettings(configuration.getProperties()).buildServiceRegistry();
-        } catch (Exception e) {
+            
+            sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+            System.out.println("Session Factory criada corretamente!");
+        } catch (Exception ex) {
+            System.out.println("Ocorreu um Erro ao iniciar o Session Factory" + ex);
+            throw new ExceptionInInitializerError(ex);
         }
     }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+    
+    
     
 }
