@@ -19,24 +19,24 @@ public class TipoEndereco implements Serializable {
         
         @Id
         @GeneratedValue
-        @Column(name = "idTipoEndereco",nullable = false)
-        private Integer IdTipoEndereco;
+        @Column(name = "IdTipoEndereco",nullable = false)
+        private Integer idTipoEndereco;
         @Column(name = "descricaoTipoEndereco",nullable = false, length = 50)
         private String descricaoTipoEndereco;
         
         @OneToMany(mappedBy = "tipoendereco", fetch = FetchType.LAZY)
-        @ForeignKey(name = "Endereco_TipoEndereco")
+        @ForeignKey(name = "EnderecoTipoEndereco")
         private List<Endereco> enderecos;
 
     public TipoEndereco() {
     }
 
     public Integer getIdTipoEndereco() {
-        return IdTipoEndereco;
+        return idTipoEndereco;
     }
 
-    public void setIdTipoEndereco(Integer IdTipoEndereco) {
-        this.IdTipoEndereco = IdTipoEndereco;
+    public void setIdTipoEndereco(Integer idTipoEndereco) {
+        this.idTipoEndereco = idTipoEndereco;
     }
 
     public String getDescricaoTipoEndereco() {
@@ -58,7 +58,7 @@ public class TipoEndereco implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + (this.IdTipoEndereco != null ? this.IdTipoEndereco.hashCode() : 0);
+        hash = 41 * hash + (this.idTipoEndereco != null ? this.idTipoEndereco.hashCode() : 0);
         return hash;
     }
 
@@ -71,7 +71,7 @@ public class TipoEndereco implements Serializable {
             return false;
         }
         final TipoEndereco other = (TipoEndereco) obj;
-        if (this.IdTipoEndereco != other.IdTipoEndereco && (this.IdTipoEndereco == null || !this.IdTipoEndereco.equals(other.IdTipoEndereco))) {
+        if (this.idTipoEndereco != other.idTipoEndereco && (this.idTipoEndereco == null || !this.idTipoEndereco.equals(other.idTipoEndereco))) {
             return false;
         }
         return true;
