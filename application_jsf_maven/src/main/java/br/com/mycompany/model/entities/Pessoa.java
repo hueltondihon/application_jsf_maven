@@ -33,10 +33,10 @@ public class Pessoa implements Serializable{
     private String Telefone;
     @Column(name="cpf",nullable = false,length = 14)//256.243.567-54
     private String cpf;
-    @Column(name="data de nascimento",nullable = false,length = 80)
+    @Column(name="datadenascimento",nullable = false,length = 80)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeNascimento;
-    @Column(name="data de cadastro",nullable = false,length = 80)
+    @Column(name="datadecadastro",nullable = false,length = 80)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeCadastro;
     
