@@ -1,4 +1,4 @@
-package br.com.mycompany.modelEntyties;
+package br.com.mycompany.model.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,8 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import org.hibernate.annotations.ForeignKey;
 
 
 @Entity
@@ -34,6 +36,10 @@ public class Pessoa implements Serializable{
     @Column(name="data de cadastro",nullable = false,length = 80)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataDeCadastro;
+    
+    @ManyToOne(optional = false)
+    @ForeignKey(name = "pessoaSexo")
+    private Pessoa pessoa;
 
     public Pessoa() {
     }
@@ -94,6 +100,16 @@ public class Pessoa implements Serializable{
     public void setDataDeCadastro(Date dataDeCadastro) {
         this.dataDeCadastro = dataDeCadastro;
     }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+    
+    
 
     @Override
     public int hashCode() {
