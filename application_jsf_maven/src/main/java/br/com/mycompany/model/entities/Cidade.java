@@ -18,7 +18,7 @@ public class Cidade implements Serializable{
     
     @Id
     @GeneratedValue
-    @Column(name = "id", nullable = false)
+    @Column(name = "idCidade", nullable = false)
     private Integer idCidade;
     @Column(name = "nome", nullable = false, length = 80)
     private String nome;

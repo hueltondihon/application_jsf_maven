@@ -21,7 +21,7 @@ public class Estado implements Serializable{
     
     @Id
     @GeneratedValue
-    @Column(name = "id", nullable = false)
+    @Column(name = "idEstado", nullable = false)
     private Integer idEstado;
     @Column(name = "nome", nullable = false, length = 80)
     private String nomeEstado;

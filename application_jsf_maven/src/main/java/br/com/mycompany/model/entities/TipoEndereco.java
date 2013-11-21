@@ -19,7 +19,7 @@ public class TipoEndereco implements Serializable {
         
         @Id
         @GeneratedValue
-        @Column(name = "id",nullable = false)
+        @Column(name = "idTipoEndereco",nullable = false)
         private Integer IdTipoEndereco;
         @Column(name = "descricaoTipoEndereco",nullable = false, length = 50)
         private String descricaoTipoEndereco;
