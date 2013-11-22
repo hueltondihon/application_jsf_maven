@@ -10,6 +10,7 @@
 
     <ui:define name="tarefas">
         <p:fieldset legend="Cadastrar Cidade">
+            <br/>
             <p:tabView dynamic="true" id="tbv1">
                 <p:tab title="Cidade">
                     <h:form prependId="false" id="formCidade">
@@ -25,9 +26,9 @@
                                          onkeyup="this.value = this.value.toUpperCase()" required="true"
                                          requiredMessage="O campo[Nome] e obrigatorio"/>
                             <p:panel>
-                                <p:commandButton value="salvar" action="#{mbCidade.addCidade}"
+                                <p:commandButton value="Salvar" action="#{mbCidade.addCidade}"
                                                  image="ui-icon ui-icon-disk" update="@form :formtable"/>
-                                <p:commandButton value="cancelar" actionListener="#{mbCidade.limpaCidade}"
+                                <p:commandButton value="Cancelar" actionListener="#{mbCidade.limpaCidade}"
                                                  image="ui-icon ui-icon-close" update="@form"/>
                             </p:panel>
                         </h:panelGrid>

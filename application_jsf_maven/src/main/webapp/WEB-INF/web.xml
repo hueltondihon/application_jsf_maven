@@ -20,7 +20,7 @@
     
     <context-param>
         <param-name>primefaces.THEME</param-name>
-        <param-value>start</param-value><!--aqui vai o nome que vc prefere do tema ver em primefaces themes-->
+        <param-value>sam</param-value><!--aqui vai o nome que vc prefere do tema ver em primefaces themes-->
     </context-param>
     
     <!--aqui vai as configuracoes para o Java Server Faces-->

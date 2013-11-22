@@ -65,12 +65,13 @@ body {
 
 }
 
-#menubv li a {
+#menub li a {
+    
     color: #654B24;
 }
 
 #menu li {
-    background:  url(../images/bg-menu.png) repeat;
+    background:  url(../images/bg-menu.png) repeat-x ;
     color: #FFF;
     
 }
@@ -79,9 +80,11 @@ body {
 }
 
 .ui-menubar .ui-menu-child .ui-menuitem-link {
+    width: 94.5%;/*acertado o hover.*/
     color: #2647a0;
 }
 #menu li a:hover {
+    
     color: #CCC;
     /*background: #7BB232;*/
     
@@ -231,13 +234,17 @@ label {
 	font-weight:bold;
 }
 
+
 .labelmenu:hover {
+    
 	color:#000000;
 }
 
 .label:hover {
-	color:#FFFFFF;
+    
+       	color:#FFFFFF;
 }
+
 
 #top {
 	width:680px;

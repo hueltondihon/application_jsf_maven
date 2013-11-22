@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../resources/main.xhtml">
+
+    <ui:define name="tarefas">
+        <p:fieldset legend="Cadastrar Pessoa">
+            <br/>
+            <h:form>
+                <p:wizard nextLabel="Proxima Aba" backLabel="Aba Anterior">
+                    <p:tab title="Informacoes Basicas" id="infoPessoal">
+                        <p:panel header="Informacoes Basicas da Pessoa">
+                            <p:growl id="msg0"/>
+                            <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid0">
+                             
+                              <h:outputLabel/>                             
+                              <h:inputHidden id="idpessoa" value="#{mbPessoa.pessoa.idPessoa}"/>
+                              
+                              <h:outputLabel for="nome" value="Nome:" />
+                              <p:inputText id="nome" size="40" value="#{mbPessoa.pessoa.nome}"
+                                    onkeyup="this.value = this.value.toUpperCase()" required="true"
+                                    requiredMessage="O campo[Nome] e obrigatorio"/>
+                              
+                              <h:outputLabel for="sexo" value="Sexo:" />
+                              <p:selectOneMenu id="sexo" value="#{mbPessoa.pessoa.sexo.idSexo}">
+                                  <f:selectItems value="#{bbSexo.sexos}" var="sexo" itemValue="#{sexo.idSexo}"
+                                                 itemLabel="#{sexo.descricao}"/>
+                              </p:selectOneMenu> 
+                              
+                              <h:outputLabel for="email" value="Email:" />
+                              <p:inputText id="email" size="40" value="#{mbPessoa.pessoa.email}"
+                                           required="true" requiredMessage="O campo[Email] e obrigatorio">
+                                  <f:validator validatorId="emailValidator"/>
+                              </p:inputText>
+                              
+                              <h:outputLabel for="telefone" value="Telefone:" />                              
+                              <p:inputMask id="telefone" size="20" mask="(99) 9999-9999" 
+                                    value="#{mbPessoa.pessoa.telefone}" required="true"
+                                    requiredMessage="O campo[Telefone] e obrigatorio"/>
+                              
+                              <h:outputLabel for="cpf" value="cpf:" />
+                              <p:inputMask id="cpf" size="15" mask="999.999.999-99"
+                                    value="#{mbPessoa.pessoa.cpf}" required="true"
+                                    requiredMessage="O campo[CPF] e obrigatorio">
+                                  <f:validator validatorId="cpfValidator"/>
+                              </p:inputMask> 
+                                                       
+                              <h:outputLabel for="datadenascimento" value="Data De Nascimento:" />
+                              <p:calendar id="datadenascimento"
+                                          value="#{mbPessoa.pessoa.dataDeNascimento}" required="true"
+                                    requiredMessage="O campo[Data de Nascimento] e obrigatorio"
+                                    locale="pt_BR" navigator="true" effect="explode" pattern="dd/MM/yyyy"/>
+                              <br/>
+                              <p:panel>
+                                  <p:commandButton value="Salvar" action="#{mbPessoa.addPessoa}"
+                                                 image="ui-icon ui-icon-disk" update="@form "/>
+                                <p:commandButton value="Cancelar" actionListener="#{mbPessoa.limpaPessoa}"
+                                                 image="ui-icon ui-icon-disk" update="@form "/>
+                                                                
+                            </p:panel>
+                              
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:tab>
+                    <p:tab title="Informacoes Endereco" id="infoEndereco">
+                        <p:panel header="Informacoes do Endereco">
+                           <p:growl id="msg1"/>
+                           <h:panelGrid columns="2" cellpadding="10" styleClass="panelGrid" id="grid1">
+                               endereco
+                           </h:panelGrid>
+                       </p:panel>
+                    </p:tab>
+                </p:wizard>
+            </h:form>
+        </p:fieldset>
+    </ui:define>
+
+</ui:composition>

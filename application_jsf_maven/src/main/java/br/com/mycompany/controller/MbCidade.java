@@ -30,7 +30,7 @@ public class MbCidade implements Serializable{
     
     public String limpaCidade(){
         cidade = new Cidade();
-        return "/restrict/cadastrarcidade.jsf";
+        return editCidade();
     }
     
     public String editCidade(){
@@ -61,7 +61,7 @@ public class MbCidade implements Serializable{
     public void deletaCidade(){
        cidadeDAO().remove(cidade);
        FacesContext.getCurrentInstance().addMessage(null, 
-            new FacesMessage(FacesMessage.SEVERITY_INFO, "Deletado com sucesso!",""));
+            new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro Deletado com sucesso!",""));
     }
     
      public List<Cidade> getCidades() {
