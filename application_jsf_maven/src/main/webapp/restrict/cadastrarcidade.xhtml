@@ -26,7 +26,7 @@
                                          requiredMessage="O campo[Nome] e obrigatorio"/>
                             <p:panel>
                                 <p:commandButton value="salvar" action="#{mbCidade.addCidade}"
-                                                 image="ui-icon ui-icon-disk" update="@form"/>
+                                                 image="ui-icon ui-icon-disk" update="@form :formtable"/>
                                 <p:commandButton value="cancelar" actionListener="#{mbCidade.limpaCidade}"
                                                  image="ui-icon ui-icon-close" update="@form"/>
                             </p:panel>
@@ -34,6 +34,44 @@
                     </h:form>
                 </p:tab>
             </p:tabView>
+            
+            <h:form id="formtable">
+                <p:growl id="msg1"/>
+                <p:dataTable id="idTabela" var="cidade" value="#{mbCidade.cidades}"
+                             paginator="true" rows="10" emptyMessage="Nenhum registro Encontrado"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
+                             {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15">
+                    
+                    <f:facet name="header">Lista de Cidades</f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{cidade.nome}"/>
+                    </p:column>
+                    
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Ações"/>
+                        </f:facet>                         <!--BOTAO UPDATE-->
+                        <p:commandButton value="Editar" image="ui-icon ui-icon-pencil"
+                               process="@this" update=":tbv1:formCidade">
+                            <f:setPropertyActionListener target="#{mbCidade.cidade}"
+                               value="#{cidade}"/>                 
+                        </p:commandButton>
+                                                          <!--BOTAO EXCLUIR-->
+                        <p:commandButton value="Remover" action="#{mbCidade.deletaCidade}"
+                               image="ui-icon ui-icon-close" update="@form">
+                            <f:setPropertyActionListener target="#{mbCidade.cidade}"
+                               value="#{cidade}"/>                 
+                        </p:commandButton>    
+                        
+                    </p:column>
+                </p:dataTable>
+                
+            </h:form>
+            
         </p:fieldset>
     </ui:define>
 
