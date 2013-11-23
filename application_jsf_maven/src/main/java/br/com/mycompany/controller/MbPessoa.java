@@ -61,18 +61,22 @@ public class MbPessoa implements Serializable{
      
      private void insertPessoa(){
        pessoaDAO().save(pessoa);
+       endereco.setPessoa(pessoa);
+       enderecoDAO().save(endereco);
         FacesContext.getCurrentInstance().addMessage(null, 
             new FacesMessage(FacesMessage.SEVERITY_INFO, "Gravacao efetuada com sucesso!",""));
     }
      
      private void updatePessoa(){
        pessoaDAO().update(pessoa);
+       enderecoDAO().update(endereco);
         FacesContext.getCurrentInstance().addMessage(null, 
             new FacesMessage(FacesMessage.SEVERITY_INFO, "Atualizacao efetuada com sucesso!",""));
     }
      
      public void deletaPessoa(){
         pessoaDAO().remove(pessoa);
+        enderecoDAO().remove(endereco);
         FacesContext.getCurrentInstance().addMessage(null, 
             new FacesMessage(FacesMessage.SEVERITY_INFO, "Registro Deletado com sucesso!",""));
     }
